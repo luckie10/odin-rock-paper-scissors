@@ -9,9 +9,29 @@
 <body>
 	<script>
 		function computerPlay () {
-				const options = ['Rock', 'Paper', 'Scissors'];
+				const options = ["rock", "paper", "scissors"];
 
 				return options[Math.floor(Math.random() * options.length)];
+		}
+		
+		function playRound(playerSelection, computerSelection) {
+			// player === computer = tie 
+			if (playerSelection === computerSelection) {
+				return "Tie."
+			} else if (
+				playerSelection === "rock" && computerSelection === "scissors" ||
+				playerSelection === "scissors" && computerSelection === "paper" ||
+				playerSelection === "paper" && computerSelection === "rock") {
+				return `Player wins!! ${playerSelection} beats ${computerSelection}`
+			} else {
+				return `Computer wins!! ${computerSelection} beats ${playerSelection}` 
+			}
+
+			// check if player wins
+				// rock beats scissors
+				// scissors beats paper
+				// paper beats rock
+			// else computer wins
 		}
 	</script>
 </body>
