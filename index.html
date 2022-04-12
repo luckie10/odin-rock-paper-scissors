@@ -15,7 +15,6 @@
 		}
 		
 		function playRound(playerSelection, computerSelection) {
-			// player === computer = tie 
 			if (playerSelection === computerSelection) {
 				return "Tie."
 			} else if (
@@ -26,12 +25,33 @@
 			} else {
 				return `Computer wins!! ${computerSelection} beats ${playerSelection}` 
 			}
+		}
+		
+		function game() {
+			let playerScore = 0;
+			let computerScore = 0;
+			let winner = "";
 
-			// check if player wins
-				// rock beats scissors
-				// scissors beats paper
-				// paper beats rock
-			// else computer wins
+			while (playerScore < 5 && computerScore < 5) {
+				//<!--! This should be a function that verfies that the user typed in a valid option. This app will be reworked to have gui and therefore we will ignore for now.
+				let playerSelection = window.prompt("Rock, Paper, or Scissors?");
+				let result = playRound(playerSelection, computerPlay());
+				console.log(result);
+
+				if (result.match(/^Player/)) {
+					playerScore++
+				} else if (result.match(/^Computer/)) {
+					computerScore++
+				}
+				console.log(`Player: ${playerScore} Computer Score: ${computerScore}`)
+			}
+			
+			winner = playerScore === 5
+				? "Player"
+				: computerScore === 5
+					? "Computer"
+					: "Unknown"
+			console.log(`The winner is: ${winner}`);
 		}
 	</script>
 </body>
