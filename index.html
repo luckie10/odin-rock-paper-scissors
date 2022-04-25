@@ -7,6 +7,27 @@
 	<title>Document</title>
 </head>
 <body>
+	<!-- Title/Header -->
+	<!-- Five Buttons -->
+	<div class="interface">
+		<div class="button" id="rock">Rock</div> 
+		<div class="button" id="paper">Paper</div> 
+		<div class="button" id="scissors">Scissors</div> 
+		<div class="button" id="lizard">Lizard</div> 
+		<div class="button" id="spock">Spock</div> 
+	</div>
+	<!-- Results -->
+	<div class="scoreBoard">
+		<div class="score">
+			Player:
+			<span id="playerScore">0</span>
+		</div>
+		<div class="score">
+			CPU: 
+			<span id="cpuScore">0</span>
+		</div>
+	</div>
+		<!-- Announcements -->
 	<script>
 		function computerPlay () {
 				const options = ["rock", "paper", "scissors"];
@@ -33,7 +54,9 @@
 			let winner = "";
 
 			while (playerScore < 5 && computerScore < 5) {
-				//<!--! This should be a function that verfies that the user typed in a valid option. This app will be reworked to have gui and therefore we will ignore for now.
+				/* This should be a function that verfies that the user typed in a 
+					valid option. This app will be reworked to have gui and therefore
+					we will ignore for now.*/
 				let playerSelection = window.prompt("Rock, Paper, or Scissors?");
 				let result = playRound(playerSelection, computerPlay());
 				console.log(result);
