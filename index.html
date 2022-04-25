@@ -4,17 +4,18 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="./script.js" defer></script>
 	<title>Document</title>
 </head>
 <body>
 	<!-- Title/Header -->
 	<!-- Five Buttons -->
 	<div class="interface">
-		<div class="button" id="rock">Rock</div> 
-		<div class="button" id="paper">Paper</div> 
-		<div class="button" id="scissors">Scissors</div> 
-		<div class="button" id="lizard">Lizard</div> 
-		<div class="button" id="spock">Spock</div> 
+		<button id="rock">Rock</button> 
+		<button id="paper">Paper</button> 
+		<button id="scissors">Scissors</button> 
+		<button id="lizard">Lizard</button> 
+		<button id="spock">Spock</button> 
 	</div>
 	<!-- Results -->
 	<div class="scoreBoard">
@@ -27,55 +28,7 @@
 			<span id="cpuScore">0</span>
 		</div>
 	</div>
-		<!-- Announcements -->
-	<script>
-		function computerPlay () {
-				const options = ["rock", "paper", "scissors"];
-
-				return options[Math.floor(Math.random() * options.length)];
-		}
-		
-		function playRound(playerSelection, computerSelection) {
-			if (playerSelection === computerSelection) {
-				return "Tie."
-			} else if (
-				playerSelection === "rock" && computerSelection === "scissors" ||
-				playerSelection === "scissors" && computerSelection === "paper" ||
-				playerSelection === "paper" && computerSelection === "rock") {
-				return `Player wins!! ${playerSelection} beats ${computerSelection}`
-			} else {
-				return `Computer wins!! ${computerSelection} beats ${playerSelection}` 
-			}
-		}
-		
-		function game() {
-			let playerScore = 0;
-			let computerScore = 0;
-			let winner = "";
-
-			while (playerScore < 5 && computerScore < 5) {
-				/* This should be a function that verfies that the user typed in a 
-					valid option. This app will be reworked to have gui and therefore
-					we will ignore for now.*/
-				let playerSelection = window.prompt("Rock, Paper, or Scissors?");
-				let result = playRound(playerSelection, computerPlay());
-				console.log(result);
-
-				if (result.match(/^Player/)) {
-					playerScore++
-				} else if (result.match(/^Computer/)) {
-					computerScore++
-				}
-				console.log(`Player: ${playerScore} Computer Score: ${computerScore}`)
-			}
-			
-			winner = playerScore === 5
-				? "Player"
-				: computerScore === 5
-					? "Computer"
-					: "Unknown"
-			console.log(`The winner is: ${winner}`);
-		}
-	</script>
+	<!-- Announcements -->
+	<div class="announce"></div>
 </body>
 </html>
